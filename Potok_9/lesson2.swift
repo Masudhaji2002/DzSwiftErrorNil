@@ -74,7 +74,7 @@ func checkOptional(){
 // Задание 2
 var optionalNumber: Int? = 10
 var number = optionalNumber ?? 0
-print(number)
+//print(number)
 
 // Задание 3
 func verifyDrivingLicense() {
