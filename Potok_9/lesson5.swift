@@ -27,49 +27,57 @@ if let number = Int(numberMotherInput ?? "") {
     print("Некорректный ввод. Пожалуйста введите число!")
 }
 
-// Задание 2
-func calculator(numberOne: Int?, numberTwo: Int?, operation: String?) {
+// Задание 2 // обновил добавив енум
+enum MathOperator {
+    case plus, minus, multiply, division
+}
+
+func calculator(numberOne: Int?, numberTwo: Int?, operation: MathOperator?) {
     guard let numOne = numberOne, let numTwo = numberTwo, let op = operation else {
         print("Некорректный ввод")
         return
     }
     
     var result = 0
-    switch operation {
-    case "+":
+    switch op {
+    case .plus:
         result = numOne + numTwo
-    case "-":
+    case .minus:
         result = numOne - numTwo
-    case "/":
+    case .division:
         if numTwo == 0 {
             print("Ошибка: деление на ноль")
             return
         }
         result = numOne / numTwo
-    case "*":
+    case .multiply:
         result = numOne * numTwo
-    default:
-        print("Некорректно введен оператор")
-        return
+    
     }
     print("Результат: \(result)")
 }
 
-calculator(numberOne: 10, numberTwo: 20, operation: "*")
+calculator(numberOne: 10, numberTwo: 20, operation: .division)
 
 
-// Задание 3
-print("Введите роль пользователя:")
-let userRole = readLine() ?? ""
-switch userRole {
-case "admin":
-    print("Результат: Полный доступ")
-case "user":
-    print("Результат: Ограниченный доступ")
-case "guest":
-    print("Результат: Отсутствие доступа")
-default:
-    print("Результат: Некорректный ввод!")
+// Задание 3 // обновил добавив енум
+enum UserRole {
+    case admin, user, guest
+}
+func OpenAuth(userRole: UserRole?){
+    guard let role = userRole else {
+        print("Некорректный ввод")
+        return
+    }
+    
+    switch role {
+    case .admin:
+        print("Результат: Полный доступ")
+    case .user:
+        print("Результат: Ограниченный доступ")
+    case .guest:
+        print("Результат: Отсутствие доступа")
+    }
 }
 
 // Enum
