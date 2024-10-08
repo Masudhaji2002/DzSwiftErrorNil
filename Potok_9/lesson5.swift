@@ -32,29 +32,21 @@ enum MathOperator {
     case plus, minus, multiply, division
 }
 
-func calculator(numberOne: Int?, numberTwo: Int?, operation: MathOperator?) {
-    guard let numOne = numberOne, let numTwo = numberTwo, let op = operation else {
-        print("Некорректный ввод")
-        return
-    }
-    
-    var result = 0
-    switch op {
+func calculator(numberOne: Int, numberTwo: Int, operation: MathOperator) {
+    switch operation {
     case .plus:
-        result = numOne + numTwo
+        print("Результат: \(numberOne + numberTwo)")
     case .minus:
-        result = numOne - numTwo
+        print("Результат: \(numberOne - numberTwo)")
     case .division:
-        if numTwo == 0 {
+        if numberTwo == 0 {
             print("Ошибка: деление на ноль")
-            return
+        } else {
+            print("Результат: \(numberOne / numberTwo)")
         }
-        result = numOne / numTwo
     case .multiply:
-        result = numOne * numTwo
-    
+        print("Результат: \(numberOne * numberTwo)")
     }
-    print("Результат: \(result)")
 }
 
 calculator(numberOne: 10, numberTwo: 20, operation: .division)
