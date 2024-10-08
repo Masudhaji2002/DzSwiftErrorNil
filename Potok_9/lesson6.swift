@@ -144,8 +144,11 @@ func getState(state: DeviceState?) {
 
 // Hardcoding
 
-enum Transport {
-    case  car, bus, train, airplane
+enum Transport: String {
+    case car = "Автомобиль"
+    case bus = "Автобус"
+    case train = "Поезд"
+    case airplane = "Самолет"
     
     enum BookingStatus {
         case notAvailable, available, fullyBooked
@@ -153,32 +156,19 @@ enum Transport {
     
     
     func getStatus(status: BookingStatus) {
-        let nameTransport: String
-        
-        switch self {
-        case .airplane:
-            nameTransport = "Самолет"
-        case .car:
-            nameTransport = "Автомобиль"
-        case .bus:
-            nameTransport = "Автобус"
-        case .train:
-            nameTransport = "Поезд"
-        }
         
         switch status {
         case .available:
-            print("\(nameTransport): Доступно для бронирования")
+            print("\(self.rawValue): Доступно для бронирования")
         case .notAvailable:
-            print("\(nameTransport): Не доступно для бронирования")
+            print("\(self.rawValue): Не доступно для бронирования")
         case .fullyBooked:
-            print("\(nameTransport): Все билеты проданы")
+            print("\(self.rawValue): Все билеты проданы")
         }
         
     }
 }
-
-let car = Transport.car.getStatus(status: .fullyBooked)
-let airplane = Transport.airplane.getStatus(status: .available)
-let bus = Transport.bus.getStatus(status: .notAvailable)
-let train = Transport.train.getStatus(status: .available)
+Transport.car.getStatus(status: .available)
+Transport.bus.getStatus(status: .fullyBooked)
+Transport.airplane.getStatus(status: .notAvailable)
+Transport.train.getStatus(status: .available)
