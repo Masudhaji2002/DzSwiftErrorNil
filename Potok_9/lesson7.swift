@@ -150,7 +150,7 @@ struct Author {
 
 struct User {
     let name: String
-    private(set) var borrowedBooks: [Book]
+    var borrowedBooks: [Book]
     
     mutating func borrowBook(book: inout Book) {
         guard book.isAvailable else {
