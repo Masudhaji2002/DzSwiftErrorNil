@@ -1,0 +1,49 @@
+//
+//  hardCod.swift
+//  Potok_9
+//
+//  Created by Масуд Гаджиев on 21.10.2024.
+//
+
+import Foundation
+
+class Person {
+    let name: String
+    var age: Int
+    
+    init?(name: String, age: Int) {
+        guard !name.isEmpty, age > 0 else {return nil}
+        self.name = name
+        self.age = age
+    }
+    
+    func describe() {
+        print("Имя: \(name). Возраст: \(age)")
+    }
+}
+
+class Student: Person {
+    let studentID: String
+    init?(name: String, age: Int, studentID: String) {
+        guard !name.isEmpty, age > 0, !studentID.isEmpty else {return nil}
+        self.studentID = studentID
+        super.init(name: name, age: age)
+    }
+    override func describe() {
+        super.describe()
+        print("Индентификатор студента: \(studentID)")
+    }
+}
+
+class Professor: Person {
+    var subject: String
+    init?(name: String, age: Int, subject: String) {
+        guard !name.isEmpty, age > 0, !subject.isEmpty else {return nil}
+        self.subject = subject
+        super.init(name: name, age: age)
+    }
+    override func describe() {
+        super.describe()
+        print("Профессор: \(name); Дисциплина: \(subject)")
+    }
+}
