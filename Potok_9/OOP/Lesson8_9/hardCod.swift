@@ -47,3 +47,10 @@ class Professor: Person {
         print("Профессор: \(name); Дисциплина: \(subject)")
     }
 }
+
+let studentOne = Student(name: "Albert", age: 18, studentID: "1001")
+studentOne?.describe()
+let studentTwo = Student(name: "John", age: 19, studentID: "1002")
+studentTwo?.describe()
+let professorOne = Professor(name: "Mikl", age: 55, subject: "Algebra")
+professorOne?.describe()
