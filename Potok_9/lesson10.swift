@@ -63,21 +63,21 @@ performConcert(playable: instruments)
 
 // HardCoding
 protocol Ink {
-    func print()
+    func printColor()
 }
 class RedInk: Ink {
-    func print() {
-        Swift.print("Печать красным цветом")
+    func printColor() {
+        print("Печать красным цветом")
     }
 }
 class BlueInk: Ink {
-    func print() {
-        Swift.print("Печать синим цветом")
+    func printColor() {
+        print("Печать синим цветом")
     }
 }
 class GreenInk: Ink {
-    func print() {
-        Swift.print("Печать зеленым цветом")
+    func printColor() {
+        print("Печать зеленым цветом")
     }
 }
 
@@ -87,7 +87,7 @@ class Printer {
         self.ink = ink
     }
     func startPrinting() {
-        ink.print()
+        ink.printColor()
     }
 }
 
